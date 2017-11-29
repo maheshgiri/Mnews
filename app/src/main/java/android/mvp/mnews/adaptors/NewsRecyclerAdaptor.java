@@ -1,12 +1,15 @@
 package android.mvp.mnews.adaptors;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.mvp.mnews.R;
 import android.mvp.mnews.utils.Constansts;
+import android.mvp.mnews.utils.ScreenUtils;
 import android.mvp.mnews.viewholders.LeftTextViewHolder;
 import android.mvp.mnews.viewholders.MainNewsViewHolder;
 import android.mvp.mnews.viewholders.RightTextViewHolder;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,7 @@ import android.view.ViewGroup;
 public class NewsRecyclerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context context;
+    Point point;
 
 
     @Override
@@ -28,6 +32,7 @@ public class NewsRecyclerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewH
         context = parent.getContext();
         if (viewType == Constansts.MAIN_NEWS_VIEW_TYPE) {
             mainview = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_mainnews, null);
+
             mainRecyViewHolder = new MainNewsViewHolder(mainview);
         } else if (viewType == Constansts.LEFT_NEWS_VIEW_TYPE) {
             mainview = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_leftviewnews, null );
@@ -43,10 +48,18 @@ public class NewsRecyclerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        holder.itemView.setBackgroundColor(Constansts.getMatColor("500", context));
+        holder.itemView.setBackgroundColor(Constansts.getMatColor("100", context));
+        point= ScreenUtils.getScreenDimensionsInDIP(context);
 
         if (holder.getItemViewType() == Constansts.MAIN_NEWS_VIEW_TYPE) {
             MainNewsViewHolder mainNewsViewHolder = (MainNewsViewHolder) holder;
+           // ViewGroup.LayoutParams layoutParams =  mainNewsViewHolder.getMainCardView().getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(point.x,point.y);
+
+            layoutParams.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP ,point.x, context.getResources().getDisplayMetrics());
+
+            mainNewsViewHolder.itemView.setLayoutParams(layoutParams);
+
         } else if (holder.getItemViewType() == Constansts.LEFT_NEWS_VIEW_TYPE) {
             LeftTextViewHolder leftTextViewHolder = (LeftTextViewHolder) holder;
         } else {

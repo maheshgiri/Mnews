@@ -23,20 +23,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView=(RecyclerView) findViewById(R.id.recyviewnewslist);
         gridLayoutManager=new GridLayoutManager(this,2);
         newsRecyclerAdaptor=new NewsRecyclerAdaptor();
-        /*gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                switch (newsRecyclerAdaptor.getItemViewType(position)) {
-                    case Constansts.MAIN_NEWS_VIEW_TYPE:
-                        return 0;
-                    case Constansts.LEFT_NEWS_VIEW_TYPE:
-                        return 1;
-                    case Constansts.RIGHT_NEWS_VIEW_TYPE:
-                        return 2;
+                if (position == 0) {
+                    return 2;
+                } else {
+                    return 1;
                 }
-                return position;
             }
-        });*/
+        });
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(newsRecyclerAdaptor);
     }

@@ -1,6 +1,8 @@
 package android.mvp.mnews;
 
 import android.mvp.mnews.adaptors.NewsRecyclerAdaptor;
+import android.mvp.mnews.models.News;
+import android.mvp.mnews.models.NewsList;
 import android.mvp.mnews.utils.Constansts;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,9 +12,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+public class MainActivity extends AppCompatActivity {
+   RecyclerView recyclerView;
+
     NewsRecyclerAdaptor newsRecyclerAdaptor;
     GridLayoutManager gridLayoutManager;
 
@@ -42,6 +48,18 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        NewsList.addNewsToList();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        NewsList.removeNewsList();
     }
 
     @Override

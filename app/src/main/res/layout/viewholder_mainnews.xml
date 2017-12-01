@@ -9,6 +9,7 @@
         android:id="@+id/imageview_mainimgnews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitXY"
         android:background="@color/colorAccent" />
 
     <LinearLayout
@@ -24,10 +25,12 @@
             android:layout_height="wrap_content"
             android:text="Title Text Headline"
             android:textSize="18sp"
+            android:textColor="@android:color/white"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textview_subtitle"
+            android:textColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sub Text Headlines" />

@@ -11,12 +11,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
    RecyclerView recyclerView;
 
     NewsRecyclerAdaptor newsRecyclerAdaptor;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(newsRecyclerAdaptor);
+
     }
 
     @Override
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }

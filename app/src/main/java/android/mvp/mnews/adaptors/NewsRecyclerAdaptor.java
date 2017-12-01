@@ -59,25 +59,18 @@ public class NewsRecyclerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewH
         News news=NewsList.newsList.get(position);
         if (holder.getItemViewType() == Constansts.MAIN_NEWS_VIEW_TYPE) {
             MainNewsViewHolder mainNewsViewHolder = (MainNewsViewHolder) holder;
-           // ViewGroup.LayoutParams layoutParams =  mainNewsViewHolder.getMainCardView().getLayoutParams();
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(point.x,point.y);
-            Glide.with(context).load(news.getNewsurl()).into(mainNewsViewHolder.getImageview_mainimgnews());
-            mainNewsViewHolder.getTextview_maintitle().setText(news.getHeadline());
-            mainNewsViewHolder.getTextview_subtitle().setText(news.getSubheadline());
+            mainNewsViewHolder.bind(news);
             layoutParams.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP ,point.x, context.getResources().getDisplayMetrics());
 
             mainNewsViewHolder.itemView.setLayoutParams(layoutParams);
 
         } else if (holder.getItemViewType() == Constansts.LEFT_NEWS_VIEW_TYPE) {
             LeftTextViewHolder leftTextViewHolder = (LeftTextViewHolder) holder;
-            Glide.with(context).load(news.getNewsurl()).into(leftTextViewHolder.getImageview_mainimgnews());
-            leftTextViewHolder.getTextview_maintitle().setText(news.getHeadline());
-            leftTextViewHolder.getTextview_subtitle().setText(news.getSubheadline());
+            leftTextViewHolder.bind(news);
         } else {
             RightTextViewHolder rightTextViewHolder = (RightTextViewHolder) holder;
-            Glide.with(context).load(news.getNewsurl()).into(rightTextViewHolder.getImageview_mainimgnews());
-            rightTextViewHolder.getTextview_maintitle().setText(news.getHeadline());
-            rightTextViewHolder.getTextview_subtitle().setText(news.getSubheadline());
+            rightTextViewHolder.bind(news);
         }
 
 

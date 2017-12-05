@@ -52,4 +52,6 @@ public class RightTextViewHolder extends RecyclerView.ViewHolder {
         textview_maintitle.setText(news.getHeadline());
         textview_subtitle.setText(news.getSubheadline());
     }
+
+
 }

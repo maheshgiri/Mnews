@@ -1,5 +1,6 @@
 package android.mvp.mnews;
 
+import android.content.Intent;
 import android.mvp.mnews.adaptors.NewsRecyclerAdaptor;
 import android.mvp.mnews.models.News;
 import android.mvp.mnews.models.NewsList;
@@ -16,8 +17,10 @@ import android.view.MotionEvent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import android.mvp.mnews.callbacks.Callback;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements Callback
+{
    RecyclerView recyclerView;
 
     NewsRecyclerAdaptor newsRecyclerAdaptor;
@@ -70,5 +73,16 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
+    @Override
+    public void onViewClicked(int position) {
+
+        startTargetActivity();
+
+    }
+
+    private  void startTargetActivity(){
+        Intent intent=new Intent(this,TargetpageActivity.class);
+        startActivity(intent);
+    }
 
 }

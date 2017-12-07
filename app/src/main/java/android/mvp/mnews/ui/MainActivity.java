@@ -1,10 +1,10 @@
-package android.mvp.mnews;
+package android.mvp.mnews.ui;
 
 import android.content.Intent;
+import android.mvp.mnews.R;
 import android.mvp.mnews.adaptors.NewsRecyclerAdaptor;
-import android.mvp.mnews.models.News;
 import android.mvp.mnews.models.NewsList;
-import android.mvp.mnews.utils.Constansts;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,19 +12,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import android.mvp.mnews.callbacks.Callback;
 
-public class MainActivity extends AppCompatActivity implements Callback
+public class MainActivity extends AppCompatActivity implements Callback, SwipeRefreshLayout.OnRefreshListener
 {
    RecyclerView recyclerView;
 
     NewsRecyclerAdaptor newsRecyclerAdaptor;
     GridLayoutManager gridLayoutManager;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +43,30 @@ public class MainActivity extends AppCompatActivity implements Callback
         });
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(newsRecyclerAdaptor);
+        NewsList.addNewsToList();
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+        mSwipeRefreshLayout.post(new Runnable() {
 
+            @Override
+            public void run() {
+
+                mSwipeRefreshLayout.setRefreshing(true);
+
+                // Fetching data from server
+                loadRecyclerViewData();
+            }
+        });
+    }
+
+    private void loadRecyclerViewData() {
+        mSwipeRefreshLayout.setRefreshing(true);
+        newsRecyclerAdaptor.notifyDataSetChanged();
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -58,17 +79,24 @@ public class MainActivity extends AppCompatActivity implements Callback
     @Override
     protected void onResume() {
         super.onResume();
-        NewsList.addNewsToList();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        NewsList.removeNewsList();
+        //NewsList.removeNewsList();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.add_news:
+                Intent addNews=new Intent(this,NewsAddActivity.class);
+                startActivity(addNews);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -85,4 +113,8 @@ public class MainActivity extends AppCompatActivity implements Callback
         startActivity(intent);
     }
 
+    @Override
+    public void onRefresh() {
+       loadRecyclerViewData();
+    }
 }

@@ -47,5 +47,9 @@ public class NewsList {
     }
 
 
+    public static void addNews(News news){
+        newsList.add(0,news);
+    }
+
 
 }

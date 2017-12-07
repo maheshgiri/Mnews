@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:text="Title Text Headline"
                 android:textSize="14sp"
+                android:fontFamily="monospace"
                 android:textStyle="bold" />
 
             <TextView
@@ -33,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:fontFamily="casual"
                 android:text="Sub Text Headlines" />
 
     </LinearLayout>

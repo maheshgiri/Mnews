@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements Callback, SwipeRe
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (position == 0) {
+                if (position == 0||position==3||position==6) {
                     return 2;
                 } else {
                     return 1;
@@ -80,6 +80,12 @@ public class MainActivity extends AppCompatActivity implements Callback, SwipeRe
     protected void onResume() {
         super.onResume();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NewsList.removeNewsList();
     }
 
     @Override

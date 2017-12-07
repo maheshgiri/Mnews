@@ -13,6 +13,7 @@ public class Constansts {
     public static final int MAIN_NEWS_VIEW_TYPE=1;
     public static final int LEFT_NEWS_VIEW_TYPE=2;
     public static final int RIGHT_NEWS_VIEW_TYPE=3;
+    public static final int CENTRE_NEWS_VIEW_TYPE=4;
 
     public static int getMatColor(String typeColor, Context context)
     {

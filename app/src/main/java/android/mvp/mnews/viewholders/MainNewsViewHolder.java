@@ -26,6 +26,7 @@ public class MainNewsViewHolder extends RecyclerView.ViewHolder {
     TextView textview_maintitle;
     TextView textview_subtitle;
     Context mContext;
+    CardView maincardview;
 
     public MainNewsViewHolder(Context context,View itemView) {
         super(itemView);
@@ -34,6 +35,7 @@ public class MainNewsViewHolder extends RecyclerView.ViewHolder {
         imageview_mainimgnews=(ImageView) itemView.findViewById(R.id.imageview_mainimgnews);
         textview_maintitle=(TextView) itemView.findViewById(R.id.textview_maintitle);
         textview_subtitle=(TextView) itemView.findViewById(R.id.textview_subtitle);
+        maincardview=(CardView) itemView.findViewById(R.id.maincardview);
     }
 
     public CardView getMainCardView() {

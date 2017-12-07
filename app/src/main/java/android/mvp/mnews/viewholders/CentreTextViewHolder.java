@@ -21,24 +21,21 @@ import butterknife.ButterKnife;
  * Created by USER on 29-11-2017.
  */
 
-public class RightTextViewHolder extends RecyclerView.ViewHolder {
-
-
+public class CentreTextViewHolder extends RecyclerView.ViewHolder {
     ImageView imageview_mainimgnews;
     TextView textview_maintitle;
     TextView textview_subtitle;
-
     Context mContext;
     LinearLayout maincardview;
 
-    public RightTextViewHolder(Context context,View itemView) {
+
+    public CentreTextViewHolder(Context context, View itemView) {
         super(itemView);
-        mContext=context;
+        mContext = context;
         imageview_mainimgnews=(ImageView) itemView.findViewById(R.id.image_mainnews);
         textview_maintitle=(TextView) itemView.findViewById(R.id.textview_maintitle);
         textview_subtitle=(TextView) itemView.findViewById(R.id.textview_subtitle);
         maincardview=(LinearLayout) itemView.findViewById(R.id.maincardview);
-
     }
 
     public ImageView getImageview_mainimgnews() {
@@ -52,6 +49,7 @@ public class RightTextViewHolder extends RecyclerView.ViewHolder {
     public TextView getTextview_subtitle() {
         return textview_subtitle;
     }
+
     public void bind(News news){
         Glide.with(mContext).load(news.getNewsurl()).into(imageview_mainimgnews);
         textview_maintitle.setText(news.getHeadline());

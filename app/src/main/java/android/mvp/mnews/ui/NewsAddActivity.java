@@ -18,9 +18,8 @@ public class NewsAddActivity extends AppCompatActivity {
 
     TextInputEditText edittext_headline, edittext_subheadline;
 
-    String newsUrls[] = new String[]{"http://www.thehindu.com/life-and-style/food/robots-serve-food-in-style-at-this-first-of-its-kind-restaurant/article21280115.ece"
-            , "http://www.thehindu.com/sport/cricket/england-tour-of-australia-australia-vs-england-second-ashes-test-match-in-adelaide/article21287894.ece"
-            , "http://www.thehindu.com/news/national/new-notes-not-fit-for-visually-impaired-hc/article21284542.ece"};
+    String newsUrls[] = new String[]{"https://static01.nyt.com/images/2017/11/29/business/29RATINGS2/29RATINGS2-1511906547527-master768.jpg"
+            };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

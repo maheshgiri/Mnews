@@ -1,5 +1,6 @@
-package android.mvp.mnews;
+package android.mvp.mnews.ui;
 
+import android.mvp.mnews.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -13,7 +14,7 @@ public class TargetpageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_targetpage);
-         myWebView = (WebView) findViewById(R.id.webview);
+        myWebView = (WebView) findViewById(R.id.webview);
         myWebView.setWebViewClient(new WebViewClient());
         myWebView.loadUrl("http://www.thehindu.com/news/");
     }

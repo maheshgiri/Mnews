@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_search_black_24dp"
         app:showAsAction="always"
         android:title="search" />
+    <item
+        android:id="@+id/add_news"
+        android:icon="@drawable/ic_add_black_24dp"
+        app:showAsAction="always"
+        android:title="search" />
 </menu>

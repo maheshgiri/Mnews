@@ -25,8 +25,8 @@ public class NewsAddActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newsadd);
-        edittext_subheadline = (TextInputEditText) findViewById(R.id.edittext_subheadline);
-        edittext_headline = (TextInputEditText) findViewById(R.id.edittext_headline);
+     //   edittext_subheadline = (TextInputEditText) findViewById(R.id.edittext_subheadline);
+       // edittext_headline = (TextInputEditText) findViewById(R.id.edittext_headline);
 
     }
 

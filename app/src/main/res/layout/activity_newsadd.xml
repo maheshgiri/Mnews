@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
 
@@ -13,7 +13,9 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:enabled="false" />
+            android:enabled="false"
+            android:id="@+id/head"
+            />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -21,36 +23,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:hint="NewsHeadline">
+        android:hint="url">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/edittext_headline"
+            android:id="@+id/url"
             />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="newssubheadline">
+        android:hint="desc">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:lines="4"
-            android:id="@+id/edittext_subheadline"
+            android:id="@+id/desc"
             />
     </android.support.design.widget.TextInputLayout>
 
-
-    <Button
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorAccent"
-        android:text="Add"
-        android:onClick="addNewsCallback"
-        android:textColor="@android:color/white" />
+        android:hint="expirydate">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lines="1"
+            android:id="@+id/expd"
+            />
+    </android.support.design.widget.TextInputLayout>
+
 
 </LinearLayout>
